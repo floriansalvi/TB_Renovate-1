@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "timezone": "Europe/Zurich",
+  "schedule": ["before 7am on monday"],
+  "automerge": false,
+  "dependencyDashboard": true,
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 10,
+  "labels": ["dependencies", "renovate"],
+  "commitMessagePrefix": "chore(deps):",
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all minor and patch dependencies",
+      "groupSlug": "all-minor-patch",
+      "labels": ["dependencies", "safe-update"]
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "labels": ["dependencies", "major-update"]
+    }
+  ]
+}
